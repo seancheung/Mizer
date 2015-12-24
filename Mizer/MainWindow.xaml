@@ -1,0 +1,20 @@
+﻿<metro:MetroWindow x:Class="Mizer.MainWindow"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+                   xmlns:local="clr-namespace:Mizer"
+                   Title="MainWindow"
+                   Height="350"
+                   Width="525">
+    <metro:MetroWindow.DataContext>
+        <local:ViewModel />
+    </metro:MetroWindow.DataContext>
+    <metro:MetroWindow.RightWindowCommands>
+        <metro:WindowCommands>
+            <Button Content="RUN" Command="{Binding Run}"></Button>
+        </metro:WindowCommands>
+    </metro:MetroWindow.RightWindowCommands>
+    <Grid>
+        <DataGrid ItemsSource="{Binding Sets, IsAsync=True, Mode=TwoWay}"></DataGrid>
+    </Grid>
+</metro:MetroWindow>
