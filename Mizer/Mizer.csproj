@@ -65,6 +65,7 @@
     <Compile Include="SimpleCommand.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="ViewModel.cs" />
+    <Compile Include="VirtualPlaytableWriter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

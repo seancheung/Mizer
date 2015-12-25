@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mizer
 {
-    public class Magiccards : ISourceProvider
+    public sealed class Magiccards : ISourceProvider
     {
         private const string SiteUrl = "http://magiccards.info";
         private const string SiteMap = "/sitemap.html";
@@ -81,7 +81,7 @@ namespace Mizer
                 var toghness = Regex.Match(pt.Value, "(?<=/).+?");
                 var loyalty = Regex.Match(head.Value, @"(?<=Loyalty:\s*)\d+(?=\))");
                 var cmc = Regex.Match(head.Value, @"(?<=\()\d+(?=\))");
-                var cost = Regex.Match(head.Value, @"(?<=,\s+)[\w\(\)]+(?=(\s+\()?)", RegexOptions.Singleline);
+                var cost = Regex.Match(head.Value, @"(?<=,\s+)[\w\{\}/]+(?=(\s+\()?)", RegexOptions.Singleline);
                 var number = Regex.Match(url.Value, @"\w+(?=\.html)");
 
                 var card = new Card();
@@ -95,9 +95,10 @@ namespace Mizer
                 card.Loyalty = loyalty.Value;
                 card.ManaCost = cost.Value;
                 card.ConvertedManaCost = cmc.Value;
-                card.Text = Regex.Replace(Regex.Replace(text.Value, "(<br>|</br>)+", Environment.NewLine),
-                    "<.+?>|(?<=>).+?(?=</)", string.Empty);
-                card.Flavor = Regex.Replace(flavor.Value, "<.+?>|(?<=>).+?(?=</)", string.Empty);
+                card.Text = Regex.Replace(Regex.Replace(Regex.Replace(text.Value, "(<br>|</br>)+", "\n"),
+                    "<.+?>|(?<=>).+?(?=</)", string.Empty), @"\n+", "\n");
+                card.Flavor = Regex.Replace(Regex.Replace(Regex.Replace(flavor.Value, "(<br>|</br>)+", "\n"),
+                    "<.+?>|(?<=>).+?(?=</)", string.Empty), @"\n+", "\n");
                 card.Artist = artist.Value;
 
                 yield return card;
