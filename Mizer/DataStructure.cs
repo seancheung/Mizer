@@ -21,7 +21,6 @@ namespace Mizer
         [XmlAttribute]
         public string URL { get; set; }
 
-        [XmlIgnore]
         public Card[] Cards { get; set; }
 
         public Set(string block, string name, string code, string lang, string url)

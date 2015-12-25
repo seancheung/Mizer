@@ -101,14 +101,15 @@ namespace Mizer
                         {
                             if (SelectedSet != null)
                             {
+                                var set = SelectedSet;
                                 IsLoadingCards = true;
-                                if (!ReadCards(SelectedSet))
+                                if (!ReadCards(set))
                                 {
                                     if (SourceProvider == null)
                                         SourceProvider = new Magiccards();
-                                    Cards = await SourceProvider.ReadCardList(SelectedSet);
+                                    Cards = await SourceProvider.ReadCardList(set);
+                                    SaveCards(set);
                                 }
-                                SaveCards(SelectedSet);
                                 IsLoadingCards = false;
                             }
                         },

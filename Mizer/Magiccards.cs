@@ -95,8 +95,9 @@ namespace Mizer
                 card.Loyalty = loyalty.Value;
                 card.ManaCost = cost.Value;
                 card.ConvertedManaCost = cmc.Value;
-                card.Text = text.Value;
-                card.Flavor = flavor.Value;
+                card.Text = Regex.Replace(Regex.Replace(text.Value, "(<br>|</br>)+", Environment.NewLine),
+                    "<.+?>|(?<=>).+?(?=</)", string.Empty);
+                card.Flavor = Regex.Replace(flavor.Value, "<.+?>|(?<=>).+?(?=</)", string.Empty);
                 card.Artist = artist.Value;
 
                 yield return card;
