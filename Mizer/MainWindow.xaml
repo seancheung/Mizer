@@ -5,16 +5,39 @@
                    xmlns:local="clr-namespace:Mizer"
                    Title="MainWindow"
                    Height="350"
-                   Width="525">
+                   Width="525" GlowBrush="{DynamicResource AccentColorBrush}">
     <metro:MetroWindow.DataContext>
         <local:ViewModel />
     </metro:MetroWindow.DataContext>
     <metro:MetroWindow.RightWindowCommands>
         <metro:WindowCommands>
-            <Button Content="RUN" Command="{Binding Run}"></Button>
+            <Button Command="{Binding LoadSets}">
+                <Grid>
+                    <metro:ProgressRing IsActive="{Binding IsLoadingSets}"
+                                        Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Width}"
+                                        Foreground="{DynamicResource WhiteBrush}" />
+                    <TextBlock Text="Sets" VerticalAlignment="Center" />
+                </Grid>
+            </Button>
+            <Button Command="{Binding LoadCards}">
+                <Grid>
+                    <metro:ProgressRing IsActive="{Binding IsLoadingCards}"
+                                        Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Width}"
+                                        Foreground="{DynamicResource WhiteBrush}" />
+                    <TextBlock Text="Cards" VerticalAlignment="Center"/>
+                </Grid>
+            </Button>
         </metro:WindowCommands>
     </metro:MetroWindow.RightWindowCommands>
     <Grid>
-        <DataGrid ItemsSource="{Binding Sets, IsAsync=True, Mode=TwoWay}"></DataGrid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DataGrid ItemsSource="{Binding Sets, IsAsync=True, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedSet,Mode=TwoWay}" Grid.Column="0" />
+        <GridSplitter Grid.Column="0" Width="2" />
+        <DataGrid ItemsSource="{Binding Cards, IsAsync=True, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedCard, Mode=TwoWay}" Grid.Column="1" />
     </Grid>
 </metro:MetroWindow>
