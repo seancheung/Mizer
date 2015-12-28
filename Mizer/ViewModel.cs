@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using Mizer.Annotations;
+using Mizer.VirtualPlaytable;
 
 namespace Mizer
 {
@@ -16,6 +17,7 @@ namespace Mizer
         private bool _isLoadingCards;
 
         public ISourceProvider SourceProvider { get; set; }
+        public IDataWriter DataWriter { get; set; }
 
         public Set[] Sets
         {
@@ -118,6 +120,24 @@ namespace Mizer
             }
         }
 
+        public SimpleCommand ExportVpt
+        {
+            get
+            {
+                return new SimpleCommand
+                {
+                    ExecuteDelegate =
+                        obj =>
+                        {
+                            var set = SelectedSet;
+                            set.Cards = Cards;
+                            DataWriter = new VirtualPlaytableWriter();
+                            DataWriter.WriteCards(set);
+                        },
+                    CanExecuteDelegate = obj => Cards != null && SelectedSet != null
+                };
+            }
+        }
 
         public bool IsLoadingSets
         {

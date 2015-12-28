@@ -24,9 +24,10 @@
                     <metro:ProgressRing IsActive="{Binding IsLoadingCards}"
                                         Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}},Path=Width}"
                                         Foreground="{DynamicResource WhiteBrush}" />
-                    <TextBlock Text="Cards" VerticalAlignment="Center"/>
+                    <TextBlock Text="Cards" VerticalAlignment="Center" />
                 </Grid>
             </Button>
+            <Button Command="{Binding ExportVpt}" Content="VPT" />
         </metro:WindowCommands>
     </metro:MetroWindow.RightWindowCommands>
     <Grid>
