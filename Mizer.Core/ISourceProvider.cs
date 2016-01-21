@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Mizer
+namespace Mizer.Core
 {
     public interface ISourceProvider
     {

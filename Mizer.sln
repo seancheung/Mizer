@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mizer", "Mizer\Mizer.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VPT-Repacker", "VPT-Repacker\VPT-Repacker.csproj", "{915B8FFD-8ABE-4F22-B8E0-1263F2124DB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mizer.Core", "Mizer.Core\Mizer.Core.csproj", "{70C217E9-59FD-4DD0-B75F-46F583264E05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mizer.VirtualPlaytable", "Mizer.VirtualPlaytable\Mizer.VirtualPlaytable.csproj", "{30A4F2F4-5ABF-46EE-82D5-141A188E506D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mizer.Magiccards", "Mizer.Magiccards\Mizer.Magiccards.csproj", "{2A58969B-3129-4510-8A8C-921F4D984EC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{915B8FFD-8ABE-4F22-B8E0-1263F2124DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{915B8FFD-8ABE-4F22-B8E0-1263F2124DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{915B8FFD-8ABE-4F22-B8E0-1263F2124DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70C217E9-59FD-4DD0-B75F-46F583264E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C217E9-59FD-4DD0-B75F-46F583264E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C217E9-59FD-4DD0-B75F-46F583264E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C217E9-59FD-4DD0-B75F-46F583264E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A4F2F4-5ABF-46EE-82D5-141A188E506D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A4F2F4-5ABF-46EE-82D5-141A188E506D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A4F2F4-5ABF-46EE-82D5-141A188E506D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A4F2F4-5ABF-46EE-82D5-141A188E506D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A58969B-3129-4510-8A8C-921F4D984EC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A58969B-3129-4510-8A8C-921F4D984EC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A58969B-3129-4510-8A8C-921F4D984EC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A58969B-3129-4510-8A8C-921F4D984EC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

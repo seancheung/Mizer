@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using Mizer.Annotations;
+using Mizer.Core;
 using Mizer.VirtualPlaytable;
 
 namespace Mizer

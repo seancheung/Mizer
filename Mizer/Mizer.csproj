@@ -63,9 +63,7 @@
     </ApplicationDefinition>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="SimpleCommand.cs" />
-    <Compile Include="Utilities.cs" />
     <Compile Include="ViewModel.cs" />
-    <Compile Include="VirtualPlaytableWriter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,10 +72,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataStructure.cs" />
-    <Compile Include="IDataWriter.cs" />
-    <Compile Include="ISourceProvider.cs" />
-    <Compile Include="Magiccards.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -110,6 +104,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mizer.Core\Mizer.Core.csproj">
+      <Project>{70c217e9-59fd-4dd0-b75f-46f583264e05}</Project>
+      <Name>Mizer.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mizer.Magiccards\Mizer.Magiccards.csproj">
+      <Project>{2a58969b-3129-4510-8a8c-921f4d984ec4}</Project>
+      <Name>Mizer.Magiccards</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mizer.VirtualPlaytable\Mizer.VirtualPlaytable.csproj">
+      <Project>{30a4f2f4-5abf-46ee-82d5-141a188e506d}</Project>
+      <Name>Mizer.VirtualPlaytable</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

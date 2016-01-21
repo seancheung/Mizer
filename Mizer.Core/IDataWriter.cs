@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Mizer
+namespace Mizer.Core
 {
     public interface IDataWriter
     {
