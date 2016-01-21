@@ -19,7 +19,7 @@ namespace Mizer
         public async Task<Set[]> ReadSetList()
         {
             IsBusy = true;
-            var page = await Utilities.MakeWebRequest(SiteUrl + SiteMap);
+            var page = await Utilities.DownloadString(SiteUrl + SiteMap);
             var sets = MatchSets(page).ToArray();
             IsBusy = false;
             return sets;
@@ -29,7 +29,7 @@ namespace Mizer
         {
             IsBusy = true;
             var url = GetSpoilerUrl(set);
-            var page = await Utilities.MakeWebRequest(url);
+            var page = await Utilities.DownloadString(url);
             set.Cards = MatchCards(page).ToArray();
             IsBusy = false;
             return set.Cards;
